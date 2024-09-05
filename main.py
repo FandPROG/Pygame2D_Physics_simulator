@@ -75,9 +75,9 @@ class Ball:
             
             # 완전 탄성 충돌 = 운동량과 운동에너지 모두 보존 -> 연립한 식
             m1, m2 = self.mass, other.mass
-            v1_final = ((v1 * m1) + (m2 * v2)) / (m1 + m2)
-            v2_final = (v2 * (m2 - m1) + 2 * m1 * v1) / (m1 + m2)
-            
+            v1_final = ((m1 - m2) * v1 + 2 * m2 * v2) / (m1 + m2)
+            v2_final = ((m2 - m1) * v2 + 2 * m1 * v1) / (m1 + m2)
+
             # 다시 x, y 성분으로 나누기
             self.vx = v1_final * math.cos(angle) - v1 * math.sin(angle)
             self.vy = v1_final * math.sin(angle) + v1 * math.cos(angle)
